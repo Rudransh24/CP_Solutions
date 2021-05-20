@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main(void)
+{
+int t;
+unsigned long a,b;
+scanf("%d",&t);
+for(int i=0; i<t;i++)
+{
+scanf("%lu %lu",&a,&b);
+if(a>b)
+printf(">");
+else
+if(a<b)
+printf("<");
+else
+if(a==b)
+printf("=");
+else
+continue;
+printf("\n");
+} 
+
+// your code goes here
+	return 0;
+}
+
+

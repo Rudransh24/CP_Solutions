@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define M 1000000007
+
+int main(void)
+{
+    int t;
+    cin>>t;
+    int count=0;
+    while(t--)
+    {
+        
+        string x;
+        cin>>x;
+        size_t found=x.find("ch");
+        size_t found1=x.find("he");
+        size_t found2=x.find("ef");
+        
+        if(found != string::npos)
+        count++;
+        else
+        {
+            if(found1 != string::npos)
+            count++;
+            else
+            {
+                if(found2 != string::npos)
+                count++;
+                else
+                continue;
+            }
+        }
+        
+    }
+    cout<<count<<endl;
+}

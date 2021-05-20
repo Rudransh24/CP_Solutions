@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define M 1000000007
+
+
+int main(void)
+{
+    int t;
+    cin>>t;
+    int count=0;
+    while(t)
+    {
+        t/=10;
+        count++;
+    }
+    if(count==1)
+    printf("1");
+    if(count==2)
+    printf("2");
+    if(count==3)
+    printf("3");
+    if(count>3)
+    printf("More than 3 digits");
+}

@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(void) {
+	int x,y,g;
+	scanf("%d %d",&x,&y);
+	
+	int d=(x-y);
+	if(d<9)
+    g=x-y+1;
+	else
+    g=x-y-1;
+    
+	printf("%d",g);
+	return 0;
+}
+
+

@@ -1,0 +1,19 @@
+#include<stdio.h>
+
+int main() {
+    int n,t,rev;
+    scanf("%d",&t);
+    for(int i=0;i<t;i++)
+    {   rev=0;int dig;
+            scanf("%d",&n);
+            while(n>0){
+            dig=n;
+            rev = (rev * 10) + dig;
+            n=n/10;}
+            printf("%d",rev);
+            printf("\n");
+    }
+
+	return 0;
+}
+

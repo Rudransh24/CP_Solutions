@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main(void)
+{
+    int t;
+    scanf("%d\n",&t);
+    while(t--)
+    {
+        int q,p;
+        scanf("%d %d\n",&q,&p);
+        double t=q*p;
+        if(q>1000)
+            t=(t-0.1*t);
+        printf("%.6lf\n",t);
+    }
+    return 0;
+}
+
+

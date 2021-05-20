@@ -1,0 +1,72 @@
+#include<boost/multiprecision/cpp_int.hpp>
+using namespace boost::multiprecision;
+#include<bits/stdc++.h>
+using namespace std;
+#define M 1000000007
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define int long long
+
+
+
+int32_t main(void)
+{
+    fastio
+    int t;
+    cin>>t;
+    
+    while(t--)
+    {
+        int ar[2]={0};
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        while(n--)
+        {
+            string b;
+            cin>>b;
+            if(b[0]=='0')
+            for(int j=0;j<b.size();j++)
+            {
+                if(b[j]=='0')
+                ar[0]++;
+            }
+            else
+            for(int j=0;j<b.size();j++)
+            {
+                if(b[j]=='1')
+                ar[1]++;
+            }
+            
+        }
+        
+        //cout<<ar[0]<<" "<<ar[1]<<endl;
+        
+        int nimsum=ar[0]^ar[1];
+        
+        //cout<<nimsum<<endl;
+        
+        if(nimsum==0)
+        {
+            if(s=="Dee")
+            cout<<"Dum"<<endl;
+            else
+            cout<<"Dee"<<endl;
+        }
+        else
+        {
+            if(ar[0]>ar[1])
+            {
+                cout<<"Dee"<<endl;
+                continue;
+            }
+            if(ar[0]<ar[1])
+            {
+                cout<<"Dum"<<endl;
+                continue;
+            }
+        }
+        
+    }
+    return 0;
+}

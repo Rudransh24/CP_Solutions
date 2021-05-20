@@ -1,0 +1,23 @@
+#include<math.h>
+#include<stdio.h>
+
+int main() {
+	int t,n,d,x,sum,a;
+	scanf("%d",&t);
+	for(int i=0;i<t;i++)
+	{       sum=0;
+	        scanf("%lu",&n);
+	        d=n;
+	        while(n>0)
+	        {
+	           a=n/10;
+	           if(a/10==0)
+                break;
+	           n=n/10;
+	        }
+	        sum=d+a;
+	        printf("%d",sum);
+	        printf("\n");
+	}
+	return 0;
+}

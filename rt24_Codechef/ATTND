@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define M 1000000007
+
+int main(void)
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        char ar[101][101],ar1[101][101];
+        for(int i=0;i<n;i++)
+        cin>>ar[i]>>ar1[i];
+        
+        for(int i=0;i<n;i++)
+        {
+            int count=0;
+            for(int j=0;j<n;j++)
+            if(strcmp(ar[i],ar[j])==0)
+            count++;
+            else
+            continue;
+           // cout<<count<<endl;
+            
+            if(count<2)
+            cout<<ar[i]<<endl;
+            else
+            cout<<ar[i]<<" "<<ar1[i]<<endl;
+        }
+        
+    }
+    
+    return 0;
+}

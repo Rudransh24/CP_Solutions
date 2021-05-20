@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int M = 1e9 + 7;
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define int unsigned long long int
+
+int gcd(int a,int b){
+	if(b==0){
+		return a;
+	}
+	return gcd(b,a%b);
+}
+
+int powermod(int A, int p, int MOD = M){
+    A%=MOD;
+    int res  = 1;
+    while(p){
+        if(p&1)
+            res = ((__int128)res*A)%MOD;
+        
+        A = ((__int128)A*A)%MOD;
+        p>>=1;
+    }
+
+    return res;
+}
+
+int32_t main(void)
+{
+    fastio
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int a,b,n;
+        cin>>a>>b>>n;
+        int x=a-b;
+        if(x==0)
+        {
+            cout<<(powermod(a,n)+powermod(b,n))%M<<"\n";
+        }
+        else
+        {
+            
+            int temp=(powermod(a,n,x)+powermod(b,n,x))%x;
+            cout<<gcd(temp,x)<<"\n";
+        }
+        
+    }
+    return 0;
+}

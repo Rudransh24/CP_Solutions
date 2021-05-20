@@ -1,0 +1,313 @@
+//my approach
+//manhattan distance maximization + kruskal's minimum spanning tree concept
+//above two concepts will never forget 
+//continuing learning new methods....
+
+/******
+
+AUTHOR : RUDRANSH TRIPATHI, IIIT NAGPUR, CCID(rt24) & CFID(rsgt24)
+
+MOTTO : Use criticism as fuel and you will never run out of energy.
+        AIM : TO BECOME A BETTER CODER
+        INTROSPECT + COURSE CORRECTIONS = CATALYST FOR SUCCESS
+        Every moment is an opportunity to better yourself
+
+*******/
+
+#include<bits/stdc++.h>
+using namespace std;
+const int M = 1e9 + 7;
+const int MAX = 1e5 + 5;
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define int long long int
+#define pb push_back
+#define d(x) cout<<x<<"\n"
+#define time_passed	1.0 * clock() / CLOCKS_PER_SEC
+
+
+//SOURCE : GEEKS FOR GEEKS
+//Kruskal’s Minimum Spanning Tree Algorithm | Greedy Algo-2
+//NICE concept used great problem will try to optimise for 100
+//https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/
+
+//https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-using-stl-in-c/
+
+char store[MAX];
+vector<string> st1;
+
+
+typedef  pair<int, int> iPair; 
+struct Graph 
+{ 
+    int V, E; 
+    vector< pair<int, iPair> > edges; 
+    Graph(int V, int E) 
+    { 
+        this->V = V; 
+        this->E = E; 
+    } 
+    void addEdge(int u, int v, int w) 
+    { 
+        edges.push_back({w, {u, v}}); 
+    } 
+    int kruskalMST(); 
+}; 
+ 
+struct DisjointSets 
+{ 
+    int *parent, *rnk; 
+    int n; 
+    DisjointSets(int n) 
+    { 
+        this->n = n; 
+        parent = new int[n+1]; 
+        rnk = new int[n+1]; 
+        for (int i = 0; i <= n; i++) 
+        { 
+            rnk[i] = 0; 
+            parent[i] = i; 
+        } 
+    } 
+
+    int find(int u) 
+    { 
+        if (u != parent[u]) 
+            parent[u] = find(parent[u]); 
+        return parent[u]; 
+    } 
+    void merge(int x, int y) 
+    { 
+        x = find(x), y = find(y); 
+        if (rnk[x] > rnk[y]) 
+            parent[y] = x; 
+        else // If rnk[x] <= rnk[y] 
+            parent[x] = y; 
+  
+        if (rnk[x] == rnk[y]) 
+            rnk[y]++; 
+    } 
+}; 
+  
+int Graph::kruskalMST() 
+{ 
+    int mst_wt = 0;
+    sort(edges.begin(), edges.end()); 
+    DisjointSets ds(V); 
+
+    vector< pair<int, iPair> >::iterator it; 
+    for (it=edges.begin(); it!=edges.end(); it++) 
+    { 
+        int u = it->second.first; 
+        int v = it->second.second; 
+  
+        int set_u = ds.find(u); 
+        int set_v = ds.find(v); 
+        if (set_u != set_v) 
+        { 
+            mst_wt += it->first; 
+            ds.merge(set_u, set_v); 
+        } 
+    } 
+  
+    return mst_wt; 
+} 
+
+void bits(int n)
+{
+    if(n < 1)
+        st1.pb(store);
+    else
+    {
+        store[n-1] = '0';
+        bits(n-1);
+        store[n-1] = '1';
+        bits(n-1);
+    }
+}
+
+void Print_Vector(vector<int> Vec) 
+{ 
+    for (int i = 0; i < Vec.size(); i++) { 
+        cout << Vec[i] << " "; 
+    } 
+    cout << endl; 
+    return; 
+} 
+
+void solve()
+{
+    int n, d;
+	cin >> n >> d;
+	bits(d);
+	vector<int> sg[st1.size()];
+	set<vector<int>> sov; 
+	int pov = pow(2,d);
+	vector<int> res[MAX];
+	int ar[n][d];
+
+    
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < d; j++)
+			cin >> ar[i][j];
+	
+	vector<pair<int,int>> vpp;
+	for(int i=0;i<st1.size();i++)
+	{
+	    string temp = st1[i];
+	    int ms = INT_MIN;
+        int mis = INT_MAX;
+	    for(int j=0;j<n;j++)
+	    {
+	        int sum = 0;
+	        for(int k=0;k<d;k++)
+	        {
+	            if(temp[k]=='0')
+	            sum+=ar[j][k];
+	            else
+	            sum-=ar[j][k];
+	        }
+	        ms = max(ms, sum);
+	        mis = min(mis, sum);
+	    }
+	    vpp.pb({ms,mis});
+	    //cout<<mis<<" "<<ms<<"\n";
+	}
+	
+	int kx = 0;
+	for(int i=0;i<st1.size();i++)
+	{
+	    string temp = st1[i];
+	    int x1 = vpp[i].first;
+	    int x2 = vpp[i].second;
+	    int max_1=INT_MIN;
+	    int min_1=INT_MAX;
+	    int cnt1 = 0;
+	    int cnt2 = 0;
+	    for(int j=0;j<n;j++)
+	    {
+	        int sum = 0;
+	        for(int k=0;k<d;k++)
+	        {
+	            if(temp[k]=='0')
+	            sum+=ar[j][k];
+	            else
+	            sum-=ar[j][k];
+	        }
+	        if(sum == x2 && cnt2 == 0)
+	        {
+	            res[kx].pb(j);
+	            cnt2 = 1;
+	            continue;
+	        }
+	        
+	    }
+	    kx++;
+	    
+	    //cout<<min_1<<" "<<max_1<<"\n";
+	}
+	
+	kx = 0;
+	for(int i=0;i<st1.size();i++)
+	{
+	    string temp = st1[i];
+	    int x1 = vpp[i].first;
+	    int x2 = vpp[i].second;
+	    int max_1=INT_MIN;
+	    int min_1=INT_MAX;
+	    int cnt1 = 0;
+	    int cnt2 = 0;
+	    for(int j=0;j<n;j++)
+	    {
+	        int sum = 0;
+	        for(int k=0;k<d;k++)
+	        {
+	            if(temp[k]=='0')
+	            sum+=ar[j][k];
+	            else
+	            sum-=ar[j][k];
+	        }
+	        if(sum == x1 && cnt2 == 0)
+	        {
+	            res[kx].pb(j);
+	            cnt2 = 1;
+	            continue;
+	        }
+	        
+	    }
+	    kx++;
+	    
+	    //cout<<min_1<<" "<<max_1<<"\n";
+	}
+	
+	set<int> last;
+	for(int i=0;i<kx;i++)
+	{
+	    last.insert(res[i][0]);
+	    last.insert(res[i][1]);
+	    //cout<<res[i][0]<<" "<<res[i][1]<<"\n";
+	}
+	
+	int final[last.size()];
+	int ksi = 0;
+	for(auto i: last)
+	{
+	    final[ksi] = i;
+	    ksi++;
+	}
+	
+	//final stores distinct 
+	
+	int V = n; // Number of vertices in graph
+	int E = ksi*n; // Number of edges in graph
+	Graph g(V, E); 
+	
+	int zz = 0;
+	for (int i = 0; i < ksi; i++)
+	{
+	    int sx = final[i];
+		for(int j = 0; j < n; j++)
+		{
+		    int sum = 0;
+		    for(int k = 0; k < d; k++)
+		    {
+		        sum += abs(ar[sx][k] - ar[j][k]);
+		    }
+		    sum = 0 - sum;
+		    g.addEdge(sx,j,sum);
+			///graph->edge[zz].src = sx;
+			//graph->edge[zz].dest = j;
+			//graph->edge[zz].weight = sum;
+			//cout<<a[zz]<<" "<<b[zz]<<" "<<c[zz]<<"\n";
+			zz++;
+		}
+	}
+	
+	cout << abs(g.kruskalMST()) << "\n";
+	
+	
+	//last contains all the required order of vertices so as to implement KruskalMST algo.
+	
+	
+    /*cout << "Set of Vectors: \n"; 
+    for (auto it = sov.begin();it != sov.end();it++) 
+    { 
+        Print_Vector(*it); 
+    }*/
+	
+	
+			
+	
+}
+
+int32_t main(void)
+{
+	fastio
+	int t = 1;
+	//cin >> t;
+	while (t--)
+	{
+		solve();
+	}
+	cerr << "\n" << "Time elapsed : " << time_passed << "\n";
+	return 0;
+}

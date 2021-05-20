@@ -1,0 +1,25 @@
+#include<stdio.h>
+
+int main(){
+	//your code goes here
+	int n,ar[100],count_even=0,count_odd=0;
+	scanf("%d",&n);
+	for(int i=0;i<n;i++)
+	{
+	        scanf("%d ",&ar[i]);
+	}
+	  for(int j=0;j<n;j++)
+	{
+	        if(ar[j]%2==0)
+	        count_even++;
+	        else
+	        count_odd++;	
+	}
+	if(count_even>count_odd)
+	printf("READY FOR BATTLE");
+	else
+	printf("NOT READY");
+	return 0;
+}
+
+

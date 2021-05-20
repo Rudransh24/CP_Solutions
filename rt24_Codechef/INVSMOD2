@@ -1,0 +1,124 @@
+//my approach to this question ;
+
+//first go through the article given
+//this approach is based on Donald Knuth approach towards k inverse permutations
+//now this algo requires finding the parity of all the 3 expressions 
+//now first we find simply which is even and which is odd ncr
+//(r&(n-r)) using this method we find parity of a ncr function
+
+//now first go for simple precomputing pentagonal numbers greater than > 115470
+//now after precomputing check parity of the whole function.
+
+/******
+
+AUTHOR : RUDRANSH TRIPATHI, IIIT NAGPUR, CCID(rt24) & CFID(rsgt24)
+
+MOTTO : Use criticism as fuel and you will never run out of energy.
+        AIM : TO BECOME A BETTER CODER
+        INTROSPECT + COURSE CORRECTIONS = CATALYST FOR SUCCESS
+        Every moment is an opportunity to better yourself
+
+*******/
+
+#include<bits/stdc++.h>
+using namespace std;
+const int MOD = 2;
+#define int long long
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define pb push_back
+#define d(x) cout<<x<<"\n"
+
+#define time_passed	1.0 * clock() / CLOCKS_PER_SEC
+//SOURCE https://oeis.org/A000326
+//https://academic.csuohio.edu/bmargolius/homepage/inversions/invers.htm#eq:Ink
+//
+
+//first precomputing pentagonal in the range The binomial coefficients are defined to be zero when the lower index is negative, so there are only finitely many nonzero terms:  for the first sum, and  for the second
+//approximately max value of k being 20000000000
+//so precomputing till 115480
+vector<int> vp;
+
+void pre()
+{
+    for(int i=1;i<=115470;i++)
+    {
+        int x = (i*(3*i - 1))/2;
+        vp.pb(x);
+    }
+}
+
+
+void solve()
+{
+    int n,k;
+    cin>>n>>k;
+    vector<int> vv;
+    n = n + k - 1;
+    
+    int ans = 0;
+    if(k&(n-k))
+    ans += 0;
+    else
+    ans += 1;
+    
+    int cc = 0;
+    for(int i=1;i<=115470;i++)
+    {
+        int x = n - vp[i-1] - i;
+        int y = k - vp[i-1] - i;
+        
+        if(x<0||y<0)
+        break;
+        
+        if(y&(x-y))
+        cc+=0;
+        else
+        cc+=1;
+    }
+    
+    if(cc&1)
+    ans += 1;
+    else
+    ans += 0;
+    
+    cc = 0;
+    
+    for(int i=1;i<=115470;i++)
+    {
+        int x = n - vp[i-1];
+        int y = k - vp[i-1];
+        
+        if(x<0||y<0)
+        break;
+        
+        if(y&(x-y))
+        cc+=0;
+        else
+        cc+=1;
+    }
+    
+    if(cc&1)
+    ans += 1;
+    else
+    ans += 0;
+    
+    
+    if(ans&1)
+    cout<<1<<"\n";
+    else
+    cout<<0<<"\n";
+    
+}
+int32_t main(void)
+{
+	fastio
+	pre();
+	int t = 1;
+	cin >> t;
+	while (t--)
+	{
+		solve(); 
+	}
+	cerr << "\n" << "Time elapsed : " << time_passed << "\n";
+	return 0;
+}

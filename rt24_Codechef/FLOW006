@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main(void) {
+	long unsigned n;
+	int t;
+	scanf("%d", &t);
+	for(int i=0; i<t ; i++)
+	{ int d,sum=0;
+	scanf("%lu",&n);
+	while(n>0)
+	{ d=n;
+	sum=sum+d;
+	n=n/10;
+	}
+	printf("%d",sum);
+	
+	printf("\n");
+	}	
+	
+	return 0;
+}
+
+

@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+
+int main(void) {
+	int l,b;
+	scanf("%d\n",&l);
+	scanf("%d",&b);
+	int area=l*b;
+	int perimeter=2*(l+b);
+	if(area>perimeter)
+	   { printf("Area");
+	    printf("\n%d",area);
+	   }
+	 else
+	 if(area<perimeter)
+	    {
+	   printf("Peri");
+	    printf("\n%d",perimeter);
+	    }
+	   else
+	    {printf("Eq\n");
+	    printf("%d",area);}
+	return 0;
+}
+
+

@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define M 1000000007
+
+int main(void)
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,k;
+        cin>>n;
+        int ar[n];
+        for(int i=0;i<n;i++)
+        cin>>ar[i];
+        cin>>k;
+        int z=ar[k-1];
+        sort(ar,ar+n);
+        for(int i=0;i<n;i++)
+        {
+            if(ar[i]==z)
+            cout<<i+1<<endl;
+        }
+    }
+    return 0;
+}

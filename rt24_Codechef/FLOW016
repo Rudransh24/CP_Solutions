@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define M 1000000007
+#include<boost/math/common_factor.hpp>
+
+int main(void)
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        long int a,b;
+        cin>>a>>b;
+        long int x=__gcd(a,b);
+        long int y=boost::math::lcm(a,b);
+        cout<<x<<" "<<y<<endl;
+    }
+    return 0;
+    
+}

@@ -1,0 +1,29 @@
+#include<stdio.h>
+
+int main() {
+	// your code goes here
+	int t;
+	char id;
+	scanf("%d\n",&t);
+	for(int i=0;i<t;i++)
+	{
+	        scanf("%c\n",&id);
+	        if(id=='B' || id=='b')
+	        {printf("BattleShip\n");continue;}
+	        else
+	         if(id=='C' || id=='c')
+	        {printf("Cruiser\n");continue;}
+	        else
+	         if(id=='D' || id=='d')
+	        {printf("Destroyer\n");continue;}
+	        else
+	         if(id=='F'||id=='f')
+	        {printf("Frigate\n");continue;}
+	        else
+	        continue;
+	        printf("\n");
+
+	}
+	return 0;
+}
+

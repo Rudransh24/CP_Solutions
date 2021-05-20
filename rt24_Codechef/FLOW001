@@ -1,0 +1,21 @@
+//Shivam is the youngest programmer in the world, he is just 12 years old. 
+//Shivam is learning programming and today he is writing his first program. 
+//Program is very simple, Given two integers A and B, write a program to add these two numbers. 
+
+#include <stdio.h> 
+
+int main()
+{
+        int t,a,b,sum;
+        scanf("%d",&t);
+        for(int i=0;i<t;i++)
+        {
+                scanf("%d %d", &a,&b);
+                sum=a+b;
+                printf("%d",sum);
+                printf("\n");
+        }
+        return 0;
+}
+
+
