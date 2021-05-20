@@ -1,0 +1,68 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define M 1000000007
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define int long long
+int32_t main(void)
+{
+    fastio
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,m;
+        cin>>n>>m;
+        string k=to_string(n);
+        string l=to_string(m);
+        string x="",y="";
+        string z="",c="";
+        string b="",v="";
+        if(n==1||n==2||n==3||n==4||n==5||n==6||n==7||n==8||n==9||m==1||m==2||m==3||m==4||m==5||m==6||m==7||m==8||m==9)
+        {
+            swap(k[0],l[0]);
+            x=x+k;
+            y=y+l;
+            int x1=stoi(x);
+            int y1=stoi(y);
+            swap(k[0],l[0]);
+            int k1=stoi(k);
+            int l1=stoi(l);
+            int q=k1+l1;
+            int w=x1+y1;
+            int h=max({q,w});
+            cout<<h<<endl;
+            continue;
+        }
+        else
+        {
+            swap(k[0],l[0]);
+            x=x+k;
+            y=y+l;
+            int x1=stoi(x);
+            int y1=stoi(y);
+            swap(k[0],l[0]);
+            swap(k[0],l[1]);
+            z=z+k;
+            c=c+l;
+            int z1=stoi(z);
+            int c1=stoi(c);
+            swap(k[0],l[1]);
+            swap(k[1],l[0]);
+            b=b+k;
+            v=v+l;
+            int b1=stoi(b);
+            int v1=stoi(v);
+            swap(k[1],l[0]);
+            int k1=stoi(k);
+            int l1=stoi(l);
+            int q=k1+l1;
+            int w=x1+y1;
+            int e=z1+c1;
+            int r=b1+v1;
+            int h=max({q,w,e,r});
+            cout<<h<<endl;
+            continue;
+        }
+    }
+    return 0;
+}

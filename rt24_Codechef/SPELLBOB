@@ -1,0 +1,27 @@
+#include<stdio.h>
+
+
+int main(void) {
+	int t;
+	scanf("%d",&t);
+	for(int i=0;i<t;i++)
+	{
+	    char str[4],str1[4];
+	    int count,count1,count2;
+	    scanf("%s\n",str);
+	    scanf("%s",str1);
+	    if((str[0]=='b'||str1[0]=='b')&&(str[1]=='o'||str1[1]=='o')&&(str[2]=='b'||str1[2]=='b'))
+	     printf("yes\n");
+	     else
+	     if((str[0]=='b'||str1[0]=='b')&&(str[1]=='b'||str1[1]=='b')&&(str[2]=='o'||str1[2]=='o'))
+	        printf("yes\n");
+	        else
+	        if((str[0]=='o'||str1[0]=='o')&&(str[1]=='b'||str1[1]=='b')&&(str[2]=='b'||str1[2]=='b'))
+	            printf("yes\n");
+	            else
+	            printf("no\n");
+	}
+	return 0;
+}
+
+

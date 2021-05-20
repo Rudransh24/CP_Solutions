@@ -1,0 +1,22 @@
+#include<stdio.h>
+
+
+int main(void) {
+	int t;
+	scanf("%d",&t);
+	for(int i=0;i<t;i++)
+	{
+	   unsigned long long int a,b,c;
+	   scanf("%llu %llu %llu",&a,&b,&c);
+	   unsigned long long int z;
+	   z=(a+b)/c;
+	   if(z%2==0)
+	   printf("Chef\n");
+	   else
+	   printf("Paja\n");
+	   
+	}
+	return 0;
+}
+
+

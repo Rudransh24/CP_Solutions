@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define M 1000000007
+#define int long long 
+
+int32_t main(void)
+{
+    int a;
+    cin>>a;
+    if(a%6==0||a%6==1||a%6==3)
+        cout<<"yes"<<endl;
+    else
+        cout<<"no"<<endl;
+    
+    return 0;
+}

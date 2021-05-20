@@ -1,0 +1,36 @@
+#include<stdio.h>
+
+
+int main(void) {
+	int t;
+	scanf("%d",&t);
+	for(int i=0;i<t;i++)
+	{
+	   int x,y;
+	   scanf("%d %d",&x,&y);
+	   int z;
+	   z=x+y;
+	   for(int i=0;i>=0;i++)
+	    {
+	        z++;
+	        int j;
+	        for(j=2;j<=z;j++)
+	            {
+	                if(z%j==0)
+	                    break;
+	                else
+	                    continue;
+	            }
+	        if(j==z)
+	            break;
+	        else
+	            continue;
+	    }
+	    printf("%d\n",z-(x+y));
+	   
+	   
+	}
+	return 0;
+}
+
+

@@ -1,0 +1,53 @@
+#include<stdio.h>
+int main() {
+    int t;
+    int a,b;
+    scanf("%d", &t);
+    for(int i=0;i<t;i++)
+    {   int sum;
+        scanf("%d %d", &a,&b);
+        sum=a+b;
+        int x=0;
+        while(sum>0)
+        {
+            int d;
+            d=sum;
+            sum=sum/10;
+            if(d==0)
+            x=x+6;
+            else
+             if(d==5)
+            x=x+5;
+            else
+             if(d==1)
+            x=x+2;
+            else
+             if(d==2)
+            x=x+5;
+            else
+             if(d==3)
+            x=x+5;
+             if(d==4)
+            x=x+4;
+            else
+             if(d==9)
+            x=x+6;
+            else
+             if(d==8)
+            x=x+7;
+            else
+             if(d==7)
+            x=x+3;
+            else
+             if(d==6)
+            x=x+6;
+            else
+            continue;
+        }
+        printf("%d",x);
+        printf("\n");
+    }
+	// your code goes here
+	return 0;
+}
+

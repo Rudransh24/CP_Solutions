@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+long unsigned n;
+scanf("%lu",&n);
+printf("%lu",n);
+	return 0;
+}
+

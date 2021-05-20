@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define M 1000000007
+
+int main(void)
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        int ar[n][n];
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<=i;j++)
+            {
+                cin>>ar[i][j];
+            }
+            //cout<<endl;
+        }
+            
+            //int sum=0;
+            for(int i=n-1;i>=0;i--)
+                for(int j=0;j<n;j++)
+                    {
+                        ar[i-1][j]+=max(ar[i][j],ar[i][j+1]);
+                        //cout<<ar[i][j]<<" ";
+                    }
+
+        //cout<<endl;
+        cout<<ar[0][0]<<endl;
+        
+        
+    }
+    
+    
+    return 0;
+}
+

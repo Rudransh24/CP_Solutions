@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+
+int main(void) {
+	int t;
+	scanf("%d",&t);
+	for(int i=0;i<t;i++)
+	{
+	   int x,rev=0,digit;
+	   scanf("%d\n",&x);
+	   int n=x;
+	   while(x>0)
+	   {
+	   digit=x;
+	   rev=rev*10+digit;
+	   x=x/10;
+	   }
+	   if(n==rev)
+	    printf("wins\n");
+	   else
+	    printf("losses\n");
+	}
+	return 0;
+}
+
+

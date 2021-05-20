@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define int long long int
+
+void solve()
+{
+	int n;
+	cin >> n;
+
+	int k = n;
+	
+	int x, y;
+	while (k--)
+		cin >> x >> y;
+
+	int ans = n;
+
+	while (n >= 6) 
+	{
+		ans += (n / 2);
+		n /= 2;
+	}
+
+	cout << ans << "\n";
+}
+
+int32_t main(void)
+{
+	fastio
+	int t = 1;
+	cin >> t;
+	while (t--)
+	{
+		solve();
+	}
+	//cerr << "\n" << "Time elapsed : " << time_passed << "\n";
+	return 0;
+}

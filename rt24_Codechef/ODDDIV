@@ -1,0 +1,87 @@
+/******
+
+AUTHOR : RUDRANSH TRIPATHI, IIIT NAGPUR, CCID(rt24) & CFID(rsgt24)
+
+MOTTO : Use criticism as fuel and you will never run out of energy.
+        AIM : TO BECOME A BETTER CODER
+        INTROSPECT + COURSE CORRECTIONS = CATALYST FOR SUCCESS
+        Every moment is an opportunity to better yourself
+        
+*******/
+
+#include<bits/stdc++.h>
+using namespace std;
+const int M = 1e9 + 7;
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define int long long int
+#define pb push_back
+#define mp make_pair
+#define d(x) cout<<x<<"\n"
+
+/*int gcd(int a, int b) 
+{ 
+    if (a == 0) 
+        return b; 
+    return gcd(b % a, a); 
+} 
+
+int powermod(int A, int p, int MOD = mod){
+    A%=MOD;
+    int res  = 1;
+    while(p){
+        if(p&1)
+            res = ((__int128)res*A)%MOD;
+        
+        A = ((__int128)A*A)%MOD;
+        p>>=1;
+    }
+
+    return res;
+}*/
+
+//pecompute data
+vector<int> v;
+void pre()
+{
+    
+    for(int i=1;i<=100000;i++)
+    {
+        int sum=0;
+        for(int j=1;j<=sqrt(i);j++)
+        {
+            if(i%j==0)
+            {
+                if((i/j)==j&&j%2==1)
+                sum+=j;
+                else if((i/j)!=j&&j%2==1&&(i/j)%2==0)
+                sum+=j;
+                else if((i/j)!=j&&j%2==0&&(i/j)%2==1)
+                sum+=(i/j);
+                else if((i/j)!=j&&j%2==1&&(i/j)%2==1)
+                sum+=j+(i/j);
+            }
+        }
+        v.pb(sum);
+    }
+}
+int32_t main(void)
+{
+    fastio
+    pre();
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int l,r;
+        cin>>l>>r;
+        int sum=0;
+        for(int i=l-1;i<=r-1;i++)
+        {
+            sum+=v[i];
+            //cout<<v[i]<<" ";
+        }
+        //cout<<"\n";
+        cout<<sum<<"\n";
+    }
+    return 0;
+}

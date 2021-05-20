@@ -1,0 +1,26 @@
+def subarrayBitwiseOR(A): 
+
+	# res contains distinct values 
+	res = set() 
+
+	pre = {0} 
+
+	for x in A: 
+		pre = {x | y for y in pre} | {x} 
+		res |= pre 
+
+	return len(res) 
+	
+tc=int(input())
+
+for i in range(0,tc):
+    n=int(input())
+    item=[]
+    item=list(map(int,input().split()))
+    total=n*(n+1)//2
+    required=subarrayBitwiseOR(item)
+    if total!=required:
+        print("NO")
+    else : 
+        print("YES")
+    

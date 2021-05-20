@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define M 1000000007
+
+int main(void)
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int l,r;
+        cin>>l>>r;
+        int count=0;
+        for(int i=l;i<=r;i++)
+        {
+            if(i==2||i==9||i==3)
+            count++;
+            else
+            continue;
+            
+        }
+        cout<<count<<endl;
+    }
+}

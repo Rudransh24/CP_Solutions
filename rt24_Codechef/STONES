@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<ctype.h>
+#include<string.h>
+
+
+int main(void) {
+	int t;
+	scanf("%d",&t);
+	while(t--)
+  	{
+	   char str[110],str1[110];
+	   scanf("%s",str);
+	   scanf("%s",str1);
+	   int x=strlen(str);
+	   int y=strlen(str1);
+	   int count=0;
+	   for(int i=0;i<y;i++)
+	   { for(int j=0;j<x;j++)
+	       { if(str1[i]==str[j])
+	        {
+	           count++;
+	           break;
+	        }
+	       }
+	   }   
+	 
+	 printf("%d\n",count);
+	   
+	}
+	return 0;
+}
+
+

@@ -1,0 +1,54 @@
+// Debugging OLD LOGIC
+
+#include<bits/stdc++.h>
+using namespace std;
+const int M = 1e9 + 7;
+const int MAX = 1e5 + 5;
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define int long long int
+#define pb push_back
+#define d(x) cout<<x<<"\n"
+#define time_passed	1.0 * clock() / CLOCKS_PER_SEC
+
+void solve()
+{
+	int n;
+	cin >> n ;
+	double tot = (n * (n - 1)) / 2;
+	int ar[n];
+	map<int, int> mp;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> ar[i];
+		mp[ar[i]]++;
+	}
+
+	sort(ar, ar + n, greater<int>());
+
+	double x = mp[ar[0]];
+	double y = mp[ar[1]];
+
+    double ans = 0;
+
+	if (x == 1)
+		ans = (y) / tot;
+	else
+		ans = (x * (x-1)) / (2 * tot);
+
+	printf("%0.8f\n", ans);
+	//for (int i = 0; i < n; i++)
+	//	cout << ar[i];
+}
+
+int32_t main(void)
+{
+	fastio
+	int t = 1;
+	cin >> t;
+	while (t--)
+	{
+		solve();
+	}
+	cerr << "\n" << "Time elapsed : " << time_passed << "\n";
+	return 0;
+}
