@@ -1,8 +1,5 @@
 # CP_Solutions
 
-CP_Solutions consists of most of the problems I have solved during my competitive programming journey.
-I have paused the activities on Codechef for now but am still active on Codeforces whose solutions would be updated regularly.
+### CP_Solutions consists most of the problems that I had solved during my competitive programming journey. I have paused the activities on Codechef and Codeforces.
 
-rsgt24 - Codeforces,
-rt24 - Codechef
-
+This is my stopstalk profile: [Stopstalk](https://www.stopstalk.com/user/profile/rt24)
